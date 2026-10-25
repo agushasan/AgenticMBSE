@@ -1,0 +1,4 @@
+# Versions used for the paper; newer versions are expected to work.
+numpy>=2.0        # tested with 2.5.3
+scipy>=1.13       # tested with 1.18.1
+matplotlib>=3.9   # tested with 3.11.2
