@@ -1,0 +1,19 @@
+Impact sets and reuse ratios
+  ECR-1: analyses ['a7']; requirements ['R1', 'R2']; eta = 0.86
+  ECR-2: analyses ['a1', 'a2', 'a3', 'a4', 'a5', 'a6']; requirements ['R3', 'R4', 'R5', 'R6', 'R7', 'R8', 'R9', 'R10']; eta = 0.14
+  ECR-3: analyses ['a4', 'a5', 'a6']; requirements ['R7', 'R8', 'R9', 'R10']; eta = 0.57
+  ECR-4: analyses ['a1', 'a2', 'a3', 'a4', 'a5', 'a6']; requirements ['R3', 'R4', 'R5', 'R6', 'R7', 'R8', 'R9', 'R10']; eta = 0.14
+
+Pairwise non-interference (disjoint impact sets)
+  ECR-1 / ECR-2: independent
+  ECR-1 / ECR-3: independent
+  ECR-1 / ECR-4: independent
+  ECR-2 / ECR-3: interfering via R7, R8, R9, R10, a4, a5, a6
+  ECR-2 / ECR-4: interfering via R3, R4, R5, R6, R7, R8, R9, R10, a1, a2, a3, a4, a5, a6
+  ECR-3 / ECR-4: interfering via R7, R8, R9, R10, a4, a5, a6
+
+Commit prerequisites (Definition 5)
+  ECR-1: scope ['R1', 'R2']; limits to decide ['R2']; tools []; data to source none; minimum tier 2
+  ECR-2: scope ['R3', 'R4', 'R5', 'R6', 'R7', 'R8', 'R9', 'R10']; limits to decide ['R3', 'R4', 'R5', 'R6', 'R7', 'R9', 'R10']; tools ['a1', 'a4', 'a5', 'a6']; data to source ['payload mass', 'payload power', 'component masses for a1']; minimum tier 3
+  ECR-3: scope ['R7', 'R8', 'R9', 'R10']; limits to decide ['R7', 'R9', 'R10']; tools ['a1', 'a4', 'a5', 'a6']; data to source ['component masses for a1']; minimum tier 3
+  ECR-4: scope ['R3', 'R4', 'R5', 'R6', 'R7', 'R8', 'R9', 'R10']; limits to decide ['R3', 'R4', 'R5', 'R6', 'R7', 'R9', 'R10']; tools ['a1', 'a4', 'a5', 'a6']; data to source ['storage mass', 'component masses for a1']; minimum tier 3

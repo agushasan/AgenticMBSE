@@ -1,0 +1,20 @@
+dependency-complete graphs: 20000 cases (seeds 2026*1000003+i)
+  decisions: 37931, decision mismatch: 0, versions: 9015, merges: 181, merge attempts: 555, merge mismatch: 0, a: 0, b: 0, b': 0, c: 0, d: 0, e: 0, f: 0
+  outcomes: admissible, awaiting approval: 1449, committed: 8834, refused after evaluation: 15601, refused at planning: 8678, rejected at staging: 3369
+  commit tiers: 1: 1549, 2: 71, 3: 7395; merge tiers: 1: 61, 2: 26, 3: 94
+  refusal reasons: binding outside graph: 201, binding violated: 221, decision for datum: 187, element not stated: 163, fail in scope: 9113, impact outside scope: 6443, non-nested scope: 69, out of bounds: 236, re-registration: 236, reduction with change: 124, registration by agent: 238, registration outside model: 230, run cited as source: 213, undecided scope: 2042, undeclared read: 534, unit: 240, unknown in scope: 6267, unmapped write: 198, unregistered source: 262, value not stated: 210, verdict write: 221
+  recorded unknown verdicts (version x requirement): definition changed outside the scope: 657
+one dependency withheld (mutation): 20000 cases (seeds 2026*1000003+i)
+  decisions: 37075, decision mismatch: 297, versions: 8755, merges: 293, merge attempts: 704, merge mismatch: 29, a: 63, b: 220, b': 215, c: 67, d: 25, e: 51, f: 0
+  cases flagged by the state or property checks: 164; by the decision oracle: 293
+  cases with a mismatch or violation: 396; smallest: case 13668 (6 nodes); replay: python3 property_tests.py --run 1 --case 13668
+seeded flaw: restated definitions exempt from the scope test: 20000 cases (seeds 2026*1000003+i)
+  decisions: 37930, decision mismatch: 217, versions: 9098, merges: 198, merge attempts: 579, merge mismatch: 17, a: 0, b: 0, b': 0, c: 0, d: 0, e: 9, f: 0
+  cases flagged by the state or property checks: 9; by the decision oracle: 225
+  cases with a mismatch or violation: 225; smallest: case 5888 (8 nodes); replay: python3 property_tests.py --run 2 --case 5888
+seeded flaw: operating conditions ignored by the element map: 20000 cases (seeds 2026*1000003+i)
+  decisions: 37930, decision mismatch: 33, versions: 9038, merges: 186, merge attempts: 565, merge mismatch: 6, a: 6, b: 12, b': 12, c: 6, d: 3, e: 11, f: 0
+  cases flagged by the state or property checks: 16; by the decision oracle: 36
+  cases with a mismatch or violation: 37; smallest: case 8152 (8 nodes); replay: python3 property_tests.py --run 3 --case 8152
+ablation family (two chains bound at their outputs): 5000 cases, 1421 merge attempts
+  re-check: committed: 1047, re-check: refused: 374, re-check: committed with binding violated: 0, no re-check: committed: 1421, no re-check: committed with binding violated: 374

@@ -1,0 +1,25 @@
+PASS  T1 registration rejected (malformed)  
+PASS  T1 registration rejected (malformed)  
+PASS  T1 registration rejected (only an engineer)  
+PASS  T1 registration rejected (outside the model)  
+PASS  T1 registration rejected (already registered)  
+PASS  T2 import with an analysis that feeds no requirement rejected  
+PASS  T3 margin exactly zero passes, at tier 2  verdict ('pass', Fraction(0, 1))
+PASS  T3 margin -2e-9 fails  
+PASS  T4 value at upper bound accepted  
+PASS  T4 value 4 outside bounds rejected  
+PASS  T4 value -1e-06 outside bounds rejected  
+PASS  T5 mm converted exactly to m  
+PASS  T5 non-convertible unit rejected  
+PASS  T5 datum in mm matches the registered value in m  
+PASS  T6 retraction needs named sign-off  
+PASS  T6 retraction reduces the scope to requirements not depending on the source  parameters ['p2'] unsupported; scope reduced by ['r2']
+PASS  T6 the reduced version still admits changes within its scope  
+PASS  T6 a retracted source cannot be cited  
+PASS  T6 no baseline while a value cites a retracted source  
+PASS  T6 audit lists the versions and baselines that cited the source  
+PASS  T7 a refused attempt leaves the verified version unchanged  
+PASS  T7 a revised change set is evaluated afresh on S_k  
+PASS  T8 approvals of the candidates do not authorise their merge  
+PASS  T9 structural changes of the trace graph are not implemented and are rejected  
+all 24 targeted checks passed

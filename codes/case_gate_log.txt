@@ -1,0 +1,51 @@
+C1   import and establish scope {R1}, named sign-off                    committed, tier 3                      R1 pass (margin 0)
+C2   ECR-1 within {R1}                                                  refused at planning                    the impact reaches {R2} outside the scope
+C3   ECR-1 with extension to {R1, R2}                                   refused at planning                    not a scope: no approved limit for R2
+C4   G1 decision on R2 with extension, without ECR-1                    refused after evaluation               binding BOA: model 0.272 vs reported 0.286
+C5   decision, ECR-1, extension; width citing an unregistered drawing   rejected at staging                    'Smith (2025) fender drawing' is not a registered source
+C6   as C5, width citing the CAD solid                                  rejected at staging                    source 'CAD solid (Table B.1)' does not state this value for 'fender.width'
+C7   as C5, width citing the envelope-check run as its source           rejected at staging                    tool run 'run-1' is evidence for an analysis output, not a source for 'fender.width'; a value computed by a tool may be proposed as a decision
+C8   as C5, width 0.006 meant as 0.006L but labelled in metres          refused after evaluation               binding BOA: model 0.273008 vs reported 0.286
+C9   as C5, width 0.006L proposed as a decision, no sign-off            admissible, awaiting approval, tier 3  R1 pass (margin 0), R2 pass (margin 0.002)
+C10  as C9, named sign-off                                              committed, tier 3                      R1 pass (margin 0), R2 pass (margin 0.002)
+C11  ECR-2, payload mass estimated by the agent                         rejected at staging                    'payload.mass' is external data: it needs a registered source, not a decision
+C12  change asserting that R2 passes                                    rejected at staging                    'verdict.R2': verdicts are computed by the evaluator and cannot be written
+C13  change declaring p8 only, also writing the hull solid              refused at planning                    declared ['p8'], derived ['p6', 'p8']; the impact reaches {R3, R4, R5, R6, R7, R8, R9, R10} outside the scope [if the declaration were trusted: committed]
+C14  ECR-2 writing a crane property with no node                        rejected at staging                    unmapped write to 'lars.crane.slew_rate'
+C15  extension to R7-R10 for ECR-3                                      refused at planning                    not a scope: no approved limit for R7, R9, R10
+C16  G1 decision recording a limit for R3, outside the scope            committed, tier 3                      R1 pass (margin 0), R2 pass (margin 0.002); R3 recorded as unknown (outside the scope)
+C17  fender width 0.008L                                                refused after evaluation               not passing in scope: R2 fail (margin -0.002)
+C18  fender width 0.0055L, engineer approval                            committed, tier 2                      R1 pass (margin 0), R2 pass (margin 0.003)
+C19  G1 decision restating R1 with limit 1.02L, named sign-off          committed, tier 3                      R1 pass (margin 0.02), R2 pass (margin 0.003)
+C20  fender width 0.006L, no approval                                   committed, tier 1                      R1 pass (margin 0.02), R2 pass (margin 0.002)
+C21  scope reduction to {R1}, named sign-off                            committed, tier 3                      R1 pass (margin 0.02)
+C22  fender width 0.005L after the reduction                            refused at planning                    the impact reaches {R2} outside the scope
+C23  designate a baseline from the version of C20                       refused                                a baseline requires verification within R; scope is {R1, R2}
+C24  as C22, also restating R2's definition                             refused at planning                    the impact reaches {R2} outside the scope
+C25  redefinition of R3 reading the beam instead of mass properties     rejected at staging                    definition of R3 reads 'a7', which is not a declared input of it: an untracked change of the trace graph
+verdicts carried after C21: {'R2': 'pass', 'R3': 'unknown: definition changed outside the scope'}
+C26  fixture-completed model: establish the scope R, named sign-off     committed, tier 3                      R1 pass (margin 0.02), R2 pass (margin 0.002), R3 pass (margin 0.2), R4 pass (margin 0.005), R5 pass (margin 0.1), R6 pass (margin 0.045), R7 pass (margin 0.25), R8 pass (margin 0.0851515), R9 pass (margin 0.9), R10 pass (margin 0.259)
+C27  designate a baseline, named sign-off at G3                         committed, tier 3                      baseline designated at G3
+     ECR-1 alone: committed, tier 1; ECR-3 alone: admissible, awaiting approval, tier 3
+C28  ECR-1 (0.0055L) and ECR-3 (320 kW) evaluated separately, merged    committed, tier 3                      merged without re-analysis
+C29  ECR-2 and ECR-3 evaluated separately, merge attempted              serialise                              shared R7, R8, R9, R10, a4, a5, a6
+C30  ECR-2 registering payload datasheet rev B and citing it            committed, tier 3                      R1 pass (margin 0.02), R2 pass (margin 0.003), R3 pass (margin 0.19), R4 pass (margin 0.0045), R5 pass (margin 0.09), R6 pass (margin 0.0445), R7 pass (margin 0.176471), R8 pass (margin 0.171602), R9 pass (margin 0.89), R10 pass (margin 0.270612)
+C31  re-registering the payload datasheet with a different mass         rejected at staging                    source 'FIXTURE: payload datasheet' is already registered; sources are immutable, register a revision
+C32  G1 decision raising the design speed of R8 to Fn 1.5               committed, tier 3                      R1 pass (margin 0.02), R2 pass (margin 0.003), R3 pass (margin 0.19), R4 pass (margin 0.0045), R5 pass (margin 0.09), R6 pass (margin 0.0445), R7 pass (margin 0.176471), R8 pass (margin 0.101602), R9 pass (margin 0.75), R10 pass (margin 0.269212)
+     N_Delta of C32: ['R8', 'a5'] ; Imp & R: ['R7', 'R8', 'R9', 'R10']
+     without the condition mapping: N_Delta ['R8'], committed; stale outputs of a5, a6, computed at the old design speed
+     C28 check: merged version equals a from-scratch evaluation of both changes: True
+C33  as C10, width given as 0.0714 m                                    committed, tier 3                      R1 pass (margin 0), R2 pass (margin 0.002)
+C34  as C10, width 0.06L (a decimal slip)                               rejected at staging                    value 0.06 L for 'fender.width' is outside its feasibility bounds [0, 0.02]
+     base version: fixture import (baseline), scope R1-R10, baseline designated: True
+     candidate 1 (ECR-1): ops [('fender.width', 0.0055, 'L', 'decision:agent')]
+       N_Delta ['p8']; Imp ['R1', 'R2', 'a7', 'p8']
+       new tool runs ['run-16']; outcome committed, tier 1 (approval not carried into the merge)
+     candidate 2 (ECR-3): ops [('propulsion.power', 320.0, 'kW', 'decision:agent')]
+       N_Delta ['p7']; Imp ['R7', 'R8', 'R9', 'R10', 'a4', 'a5', 'a6', 'p7']
+       new tool runs ['run-17', 'run-18', 'run-19']; outcome admissible, awaiting approval, tier 3 (approval not carried into the merge)
+     merge without approval: admissible, awaiting approval, tier 3
+     merge with named sign-off: committed, tier 3; tool runs created by the merge: 0
+       evidence reused: a1<-run-9, a2<-run-10, a3<-run-11, a5<-run-17, a4<-run-18, a6<-run-19, a7<-run-16
+       invariants re-checked: binding BOA, in-scope verdicts R1-R10 (all pass)
+all 34 outcomes match the expected outcomes derived by hand

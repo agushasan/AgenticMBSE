@@ -1,0 +1,11 @@
+base version: fixture import (baseline), scope R1-R10, baseline designated: True
+candidate 1 (ECR-1): ops [('fender.width', 0.0055, 'L', 'decision:agent')]
+  N_Delta ['p8']; Imp ['R1', 'R2', 'a7', 'p8']
+  new tool runs ['run-16']; outcome committed, tier 1 (approval not carried into the merge)
+candidate 2 (ECR-3): ops [('propulsion.power', 320.0, 'kW', 'decision:agent')]
+  N_Delta ['p7']; Imp ['R7', 'R8', 'R9', 'R10', 'a4', 'a5', 'a6', 'p7']
+  new tool runs ['run-17', 'run-18', 'run-19']; outcome admissible, awaiting approval, tier 3 (approval not carried into the merge)
+merge without approval: admissible, awaiting approval, tier 3
+merge with named sign-off: committed, tier 3; tool runs created by the merge: 0
+  evidence reused: a1<-run-9, a2<-run-10, a3<-run-11, a5<-run-17, a4<-run-18, a6<-run-19, a7<-run-16
+  invariants re-checked: binding BOA, in-scope verdicts R1-R10 (all pass)

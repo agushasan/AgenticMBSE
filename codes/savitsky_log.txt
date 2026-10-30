@@ -1,0 +1,3 @@
+b/L = 0.25: C_V = 2.86, lambda = 1.61, running trim = 4.1 deg bow-up
+b/L = 0.26: C_V = 2.80, lambda = 1.54, running trim = 3.9 deg bow-up
+b/L = 0.27: C_V = 2.75, lambda = 1.48, running trim = 3.8 deg bow-up
